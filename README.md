@@ -1,2 +1,2 @@
 # pbd2lodas_mdt
-Erfassungstool für Mandanten
+Erfassungstool für Mandanten für DATEV Lodas
