@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<title>Tool pbd2lodas V0.3a</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../static/w3.css">
+<link rel="stylesheet" href="../static/bootstrap.min.css">
+<link rel="stylesheet" href="../static/dna-theme.css">
+
+</head>
+
+<body>
+
+<!-- Header -->
+
+<div class="w3-row-padding">
+  <header class="card">
+    <center><h3>Erfassen von variablen Werten für die DATEV Lohnabrechnung (Lodas) V0.3a</h3></center>
+  </header>
+</div>
+<br>
+
+<!--Navigation-->
+<div class="w3-container">
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" href="index.html">Home</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Erfassung</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="erfassungstunden.html">Stunden</a>
+        <a class="dropdown-item" href="erfassungbetrag.html">Beträge</a>
+  
+        <a class="dropdown-item" href="personalstammdaten.html">Personalfragebogen</a>
+      </div>
+    </li>
+    
+  <li class="nav-item">
+      <a class="nav-link" href="protokoll.html">Protokoll</a>
+  </li>
+  
+    <li class="nav-item">
+      <a class="nav-link" href="konvertierung.html">Konvertieren</a>
+    </li>
+
+  </ul>
+  </div>
+<br>
+
+<div class="w3-row-padding">
+<div class="w3-quarter">
+&nbsp;
+</div>
+
+<div class="w3-half">
+<form class="w3-container card w3-round">
+  <h2>Stammdaten</h2>
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      <input class="w3-input w3-border-teal" type="text" name="form_beraternummer", readonly placeholder={{v_bnr}}>
+      <label for="Beraternummer">Beraternummer</label>
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border-teal" type="text" name="form_mandantennummer", placeholder={{v_mdt}}>
+      <label for="Mandantennummer">Mandantennummer</label>
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border-teal" type="text" name="form_MMJJ", readonly placeholder={{v_monat}}/{{v_jahr}}>
+      <label for="MMJJ">Abrechnungsmonat/Jahr</label><br><br>
+    </div><br>
+  </div>
+</form>
+</div>
+
+<div class="w3-quarter">
+&nbsp;
+</div>
+
+<div class="w3-row-padding">
+<br>
+
+
+<div class="w3-half">
+<form action = "http://localhost:1701/erfassungbetrag.html" class="w3-container w3-card-4 w3-round", method = "POST">
+  
+  <div class="w3-third">
+  <h3>Beträge</h3></div>
+  <div class="w3-third"><h3>Personalnummer:</h3></div>
+ 
+  <div class="w3-third">
+<center>
+<br>  <input class="w3-input w3-border-red w3-pale-yellow" type="text" name="form_personalnummer", placeholder="Eingabe!" required style="width:50%" maxlength="5">
+<br>
+</center>
+</div>
+
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      <div class="w3-tag w3-round w3-light-grey">{{v_bn1}}
+      </div>
+      <div class="w3-tag w3-round w3-light-grey">{{v_bt1}}
+      </div>
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="form_wert", pattern="[-+]?[0-9]*[,]?[0-9]+" placeholder="99999,99" maxlength="8">
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="form_kostenstelle", placeholder="Kostenstelle" maxlength="13">
+    </div>
+  </div>
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      <div class="w3-tag w3-round w3-light-grey">{{v_bn2}}
+      </div>
+      <div class="w3-tag w3-round w3-light-grey">{{v_bt2}}
+      </div>
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fw2" pattern="[-+]?[0-9]*[,]?[0-9]+" placeholder="99999,99" maxlength="8">
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fk2" placeholder="Kostenstelle" maxlength="13">
+    </div>
+  </div>
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      <div class="w3-tag w3-round w3-light-grey">{{v_bn3}}
+      </div>
+      <div class="w3-tag w3-round w3-light-grey">{{v_bt3}}
+      </div>
+      </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fw3" pattern="[-+]?[0-9]*[,]?[0-9]+" placeholder="99999,99" maxlength="8">
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fk3" placeholder="Kostenstelle" maxlength="13">
+    </div>
+  </div>
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      <div class="w3-tag w3-round w3-light-grey">{{v_bn4}}
+      </div>
+      <div class="w3-tag w3-round w3-light-grey">{{v_bt4}}
+      </div>
+    </div>
+      <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fw4" pattern="[-+]?[0-9]*[,]?[0-9]+" placeholder="99999,99" maxlength="8">
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fk4" placeholder="Kostenstelle" maxlength="13">
+    </div>
+  </div>
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      <div class="w3-tag w3-round w3-light-grey">{{v_bn5}}
+      </div>
+      <div class="w3-tag w3-round w3-light-grey">{{v_bt5}}
+      </div>
+      </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fw5" pattern="[-+]?[0-9]*[,]?[0-9]+" placeholder="99999,99" maxlength="8">
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fk5" placeholder="Kostenstelle" maxlength="13">
+    </div>
+  </div>
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fl6" placeholder="Lohnart" maxlength="4">
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fw6" pattern="[-+]?[0-9]*[,]?[0-9]+" placeholder="99999,99" maxlength="8">
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fk6" placeholder="Kostenstelle" maxlength="13">
+    </div>
+  </div>
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fl7" placeholder="Lohnart" maxlength="4">
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fw7" pattern="[-+]?[0-9]*[,]?[0-9]+" placeholder="99999,99" maxlength="8">
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fk7" placeholder="Kostenstelle" maxlength="13">
+    </div>
+  </div>
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fl8" placeholder="Lohnart" maxlength="4">
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fw8" pattern="[-+]?[0-9]*[,]?[0-9]+" placeholder="99999,99" maxlength="8"> 
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fk8" placeholder="Kostenstelle" maxlength="13"> 
+    </div>
+  </div>
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fl9" placeholder="Lohnart" maxlength="4">
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fw9" pattern="[-+]?[0-9]*[,]?[0-9]+" placeholder="99999,99" maxlength="8">
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border" type="text" name="fk9" placeholder="Kostenstelle" maxlength="13">
+    </div>
+  </div>
+
+  <br>
+
+      <div class="w3-third">    
+        <center>
+          <input type = "submit" button class="btn btn-primary" value = "speichern"/>
+          </center><br>
+      </div>
+      <div class="w3-third">&NonBreakingSpace;</div>    
+      <div class="w3-third">  
+        <center>
+          <input type="reset" button class="btn btn-default" value="verwerfen">
+          </center><br>
+    </div>
+  </form>
+</div>
+
+<div class="w3-col" style="width:10px">
+
+</div>
+
+<div class="w3-half">
+<form class="w3-container w3-card-4 w3-round">
+
+  
+  <h3>Hinweise</h3>
+<br>
+      <div class="w3-row-padding">
+      <div class="w3-half">
+        <p>Personalnummer </p>
+        </div>
+        <div class="w3-half">
+          <p>Personalnummer muss im Lohnprogramm vorhanden sein, wenn die Zeilen nicht ausreichen,
+           kann auch mehrfach für eine Personalnummer die Maske verwendet werden<br>
+           Personalnummer ist 1 bis 5 stellig, sprich die Personalnummer mit deinem Steuerberater ab<br>
+        </div>
+      </div>
+
+
+      <div class="w3-row-padding">
+        <div class="w3-half">
+        <p>Lohnarten in der Erfassung</p>
+        </div>
+        <div class="w3-half">
+          <p>Lohnarten sind 1 bis 4 stellig. Sprich die Lohnarten, die du verwenden sollst, mit deinem Steuerberater ab.</div>
+        </div>
+      <div class="w3-row-padding">
+        <p>Beträge erfasse im folgenden Format: max. 99999,99, du musst keine Nachkommastelle eingeben wenn es keine gibt<br>  </p>
+      </div>
+
+      <div class="w3-row-padding">
+        <p>Kostenstelle kannst du freilassen, wenn du Kostenstellen erfassen willst, dann sind maximal 13 Stellen möglich, du kannst gleiche Lohnarten auf verschiedene Kostenstellen verteilen, wenn du diese mehrfach erfasst<br>  </p>
+      </div>
+
+              
+      </form>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

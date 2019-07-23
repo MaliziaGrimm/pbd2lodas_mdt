@@ -1,0 +1,1 @@
+999999|99999|702|Überstunden|706|EFZ Urlaub|708|EFZ Krank|772|Samstagszuschlag|774|Sonntagszuschlag|100|Prämie|773|Rufbereitschaft|781|Leistungprämie|782|Leistungszuschlag|864|Urlaubsgeld

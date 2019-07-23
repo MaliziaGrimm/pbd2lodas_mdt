@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<title>Tool pbd2lodas V0.3a</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../static/w3.css">
+<link rel="stylesheet" href="../static/bootstrap.min.css">
+<link rel="stylesheet" href="../static/dna-theme.css">
+
+</head>
+
+<body>
+
+<!-- Header -->
+<div class="w3-row-padding">
+  <header class="card">
+    <center><h3>Lohnabrechnungsdatenerfassung V0.3a</h3></center>
+  </header>
+</div>
+<br>
+
+<!--Navigation-->
+<div class="w3-container">
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="index.html">Home</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Erfassung</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="erfassungstunden.html">Stunden</a>
+      <a class="dropdown-item" href="erfassungbetrag.html">Beträge</a>
+     
+      <a class="dropdown-item" href="personalstammdaten.html">Personalfragebogen</a>
+    </div>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="protokoll.html">Protokoll</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="konvertierung.html">Konvertieren</a>
+  </li>
+</ul>
+</div>
+<br>
+<div class="w3-row-padding">
+  <div class="card">
+  <center><h3>
+  Einfach Stunden und Beträge für die Lohnabrechnung für deinen Steuerberater erfassen?<br>
+  Dann bist du hier genau richtig!<br>
+  Sprich die Inhalte mit deinem Steuerberater ab!</h3></center>
+  </div> 
+</div>
+<br>
+<center><button type="button" class="btn btn-info"> {{v_text}}{{v_monat}}/{{v_jahr}}
+</button>
+</center>
+
+  <div class="w3-row-padding">
+    <br>
+      <div class="w3-quarter">&nbsp;
+      </div>
+    
+    <div class="w3-half">
+      <form action = "http://localhost:1701/index.html" class="w3-container w3-card-4 w3-round", method = "POST">
+      <h2>wähle den Abrechnungszeitraum</h2>
+      
+      <div class="w3-row">
+        <div class="w3-quarter"><h4>Abrechnungsmonat:</h4>
+          <input id="januar" class="w3-radio-2" type="radio" name="form_monat" value="01" checked>
+          <label for="januar">Januar</label>
+          <br>
+          <input id="februar" class="w3-radio-2" type="radio" name="form_monat" value="02">
+          <label for="februar">Februar</label>
+          <br>
+          <input id="maerz" class="w3-radio-2" type="radio" name="form_monat" value="03">
+          <label for="maerz">März</label>
+          <br>
+          <input id="april" class="w3-radio-2" type="radio" name="form_monat" value="04">
+          <label for="april">April</label>
+          <br>
+          <input id="mai" class="w3-radio-2" type="radio" name="form_monat" value="05">
+          <label for="mai">Mai</label>
+              <br>
+          <input id="juni" class="w3-radio-2" type="radio" name="form_monat" value="06">
+          <label for="juni">Juni</label>
+              <br><br>
+        </div>
+        <div class="w3-quarter">
+          <br><br>
+          <input id="juli" class="w3-radio-2" type="radio" name="form_monat" value="07">
+          <label for="juli">Juli</label>
+              <br>
+          <input id="august" class="w3-radio-2" type="radio" name="form_monat" value="08">
+          <label for="august">August</label>
+              <br>
+          <input id="september" class="w3-radio-2" type="radio" name="form_monat" value="09">
+          <label for="september">September</label>
+              <br>
+          <input id="oktober" class="w3-radio-2" type="radio" name="form_monat" value="10">
+          <label for="oktober">Oktober</label>
+              <br>
+          <input id="november" class="w3-radio-2" type="radio" name="form_monat" value="11">
+          <label for="november">November</label>
+              <br>
+          <input id="dezember" class="w3-radio-2" type="radio" name="form_monat" value="12">
+          <label for="dezember">Dezember</label>
+          <br><br>
+        </div>
+        
+          <div class="w3-quarter"><h4>Abrechnungsjahr:</h4><br></div>
+          <div class="w3-quarter"><br><br>
+            <input id="2019" class="w3-radio-2" type="radio" name="form_jahr" value="2019">
+            <label for="2019">2019</label>
+            <br>
+            <input id="2020" class="w3-radio-2" type="radio" name="form_jahr" value="2020" checked>
+            <label for="2020">2020</label>
+            <br>
+            <input id="2021" class="w3-radio-2" type="radio" name="form_jahr" value="2021">
+            <label for="2021">2021</label>
+            <br>
+            <input id="2022" class="w3-radio-2" type="radio" name="form_jahr" value="2022">
+            <label for="2022">2022</label>
+            
+          </div>
+          </div>
+    
+        <div class="w3-third">    
+          <center>
+          <button class="btn btn-primary" input type = "submit">speichern</button>
+          </center><br>
+        </div>
+     
+        <div class="w3-third">&NonBreakingSpace;</div>    
+        
+        <div class="w3-third">  
+          <center>
+          <button class="btn btn-default" input type="reset">verwerfen</button>
+          </center>
+        </div><br>
+      </form>
+    </div>
+    
+      <div class="w3-quarter">&nbsp;
+      </div>
+    </div>
+
+<br>
+
+<div class="panel">
+  <footer class="card">
+  <center>
+  <h2>Anleitung:</h2>
+  <p>Einmalig: dein Steuerberater stellt die Basisdaten zur Verfügung, diese Datei (basisdaten.txt) speichere im Verzeichnis /daten<br>
+ <br>Monatlich: wähle den Abrechnungszeitraum, dann kannst du Stunden und Beträge für die Lohnabrechnung pro Arbeitnhemer erfassen <br>
+      ein Personalfragebogen für neue Mitarbeiter steht dir auch zur Verfügung<br>
+  am Ende konvertierst du die Datei für deinen Steuerberater und stellst ihm diese Datei zur Verfügung<br>
+am besten mit Unternehmen online oder DATEV CloudBox - denke an den Datenschutz!</p></center>
+</footer>
+  </div> 
+<br>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

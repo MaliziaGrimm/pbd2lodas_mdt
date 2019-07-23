@@ -1,0 +1,449 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<title>Tool pbd2lodas V0.3a</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../static/w3.css">
+<link rel="stylesheet" href="../static/bootstrap.min.css">
+<link rel="stylesheet" href="../static/dna-theme.css">
+</head>
+
+<body>
+
+<!-- Header -->
+
+<div class="w3-row-padding">
+  <header class="card">
+    <center><h3>Personalfragebogen zur Neuanlage Personalstammdaten für die DATEV Lohnabrechnung (Lodas) V0.3a</h3></center>
+  </header>
+</div>
+<br>
+<!--Navigation-->
+<div class="w3-container">
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" href="index.html">Home</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Erfassung</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="erfassungstunden.html">Stunden</a>
+        <a class="dropdown-item" href="erfassungbetrag.html">Beträge</a>
+        
+        <a class="dropdown-item" href="personalstammdaten.html">Personalfragebogen</a>
+      </div>
+    </li>
+    
+  <li class="nav-item">
+      <a class="nav-link" href="protokoll.html">Protokoll</a>
+  </li>
+    <li class="nav-item">
+      <a class="nav-link" href="konvertierung.html">Konvertieren</a>
+    </li>
+  </ul>
+  </div>
+<br>
+<div class="w3-row-padding">
+<div class="w3-quarter">
+&nbsp;
+</div>
+
+<div class="w3-half">
+<form class="w3-container card w3-round">
+  <h2>Stammdaten</h2>
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      <input class="w3-input w3-border-teal" type="text" name="form_beraternummer", readonly placeholder={{v_bnr}}>
+      <label for="Beraternummer">Beraternummer</label>
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border-teal" type="text" name="form_mandantennummer", readonly placeholder={{v_mdt}}>
+      <label for="Mandantennummer">Mandantennummer</label>
+    </div>
+    <div class="w3-third">
+      <input class="w3-input w3-border-teal" type="text" name="form_MMJJ", readonly placeholder={{v_monat}}/{{v_jahr}}>
+      <label for="MMJJ">Abrechnungsmonat/Jahr</label><br><br>
+    </div><br>
+  </div>
+</form>
+</div>
+
+<div class="w3-quarter">
+&nbsp;
+</div>
+
+<div class="w3-row-padding">
+<br>
+
+<form action = "http://localhost:1701/personalstammdaten.html" class="w3-container w3-card-4 w3-round", method = "POST">
+  <div class="w3-third">
+    <h3>Stammdatenneuanlage</h3></div>
+  <div class="w3-third">
+    <h3>Personalnummer:</h3></div>
+  <div class="w3-third">
+    <center>
+    <br>
+    <input class="w3-input w3-border-red w3-pale-yellow" type="text" name="form_personalnummer", placeholder="Eingabe!" required style="width:50%" maxlength="5">
+    <br>
+    </center>
+  </div>
+
+  <div class="w3-row w3-container">
+    <div class="w3-half">
+        <div class="w3-row-padding"> 
+          <div class="w3-col l2 w3-left">
+            <p><label>Name </label></p>
+          </div>
+          <input class="w3-col l4 w3-input w3-pale-yellow w3-border" type="text" name="form_name", required maxlength="30">
+        
+          <div class="w3-col l2 w3-left">
+            <p><label>Vorname</label></p>
+          </div>
+          <input class="w3-col l4 w3-input w3-pale-yellow w3-border" type="text" name="form_vorname", required maxlength="30">
+        </div>
+    </div>
+
+    <div class="w3-half">
+        <div class="w3-row-padding"> 
+          <div class="w3-col l4 w3-left">
+            <p><label>Geburtsdatum</label></p>
+          </div>
+          <input class="w3-col l2 w3-input w3-pale-yellow w3-border" type="date" name="form_gebdatum", required>
+
+          <div class="w3-col l4 w3-left">
+            <p><label>Eintrittsdatum</label></p>
+          </div>
+          <input class="w3-col l2 w3-input w3-pale-yellow w3-border" type="date" name="form_eintrittsdatum", required>
+      </div>        
+    </div>
+  </div>
+
+  <div class="w3-row w3-container">
+    <div class="w3-half">
+      <div class="w3-row-padding">
+        <div class="w3-col l2 w3-left">
+          <p><label>Strasse </label></p>
+        </div>
+        <input class="w3-col l4 w3-input w3-pale-yellow w3-border" type="text" name="form_strasse", required maxlength="30">
+        <div class="w3-col l2 w3-left">
+          <p><label>Hausnummer</label></p>
+        </div>
+        <input class="w3-col l1 w3-input w3-pale-yellow w3-border" type="text" name="form_hausnummer", required maxlength="6">
+        <div class="w3-col l2 w3-left">
+          <p><label>Postleitzahl</label></p>
+          </div>
+          <input class="w3-col l1 w3-input w3-pale-yellow w3-border" type="text" name="form_plz", required maxlength="5">
+      </div>
+    </div>
+    <div class="w3-half">
+      <div class="w3-row-padding">
+        <div class="w3-col l2 w3-left">
+          <p><label>Wohnort</label></p>
+          </div>
+          <input class="w3-col l4 w3-input w3-pale-yellow w3-border" type="text" name="form_wohnort", required maxlength="30">
+        <div class="w3-col l4 w3-left">
+          <p><label>Geschlecht</label></p>
+        </div>
+        <select class="form-control w3-col l2 w3-input w3-pale-yellow w3-border" type="text" name="form_geschlecht", required>
+          <option value="1">weiblich</option>
+          <option value="0">männlich</option>
+          <option value="2">divers</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-container w3-row">
+  <h3>notwendige Angaben</h3>
+    <div class="w3-half">
+      <div class="w3-row-padding">
+        <div class="w3-col l3 w3-left">
+            <p><label>SV Nummer </label></p>
+          </div>
+          <input class="w3-col l3 w3-input w3-border" type="text" name="form_svnummer", maxlength="15">
+        <div class="w3-col l3 w3-left">
+          <p><label>Krankenkasse</label></p>
+        </div>
+        <input class="w3-col l3 w3-input w3-border" type="text" name="form_krankenkasse", maxlength="30">
+      </div>
+
+      <div class="w3-row-padding">
+        <div class="w3-col l4 w3-left">
+          <p><label>Elterneigenschaft</label></p>
+          </div>
+          <select class="form-control w3-col l2 w3-input w3-border" type="text" name="form_elterneigenschaft">
+            <option value="0" selected>nein</option>
+            <option value="1">ja</option>
+          </select>
+      <div class="w3-col l6 w3-center">
+        </div>
+      </div>
+        
+    <div class="w3-row-padding">
+      <div class="w3-col l1 w3-left">
+        <p><label>KV</label></p>
+      </div>
+      <select class="form-control w3-col l5 w3-input w3-border" type="text" name="form_KV">
+        <option value="0">kein Beitrag</option>
+        <option value="1" selected>allgemeiner Beitrag</option>
+        <option value="3">ermäßigter Beitrag</option>
+        <option value="6">Pauschal geringfügig Beschäftigte</option>
+        <option value="9">freiwillig KV</option>
+      </select>
+      <div class="w3-col l1 w3-left">
+        <p><label>RV</label></p>
+      </div>
+      <select class="form-control w3-col l5 w3-input w3-border" type="text" name="form_RV">
+        <option value="0">kein Beitrag</option>
+        <option value="1" selected>allgemeiner Beitrag</option>
+        <option value="3">halber Beitrag</option>
+        <option value="5">geringfügig entlohnt</option>
+      </select>
+    </div>
+      
+    <div class="w3-row-padding">
+      <div class="w3-col l1 w3-left">
+        <p><label>AV</label></p>
+      </div>
+      <select class="form-control w3-col l5 w3-input w3-border" type="text" name="form_AV">
+        <option value="0">kein Beitrag</option>
+        <option value="1" selected>voller Beitrag</option>
+        <option value="2">halber Beitrag</option>
+      </select>
+
+      <div class="w3-col l1 w3-left">
+        <p><label>PV</label></p>
+      </div>
+      <select class="form-control w3-col l5 w3-input w3-border" type="text" name="form_PV">
+        <option value="0">kein Beitrag</option>
+        <option value="1" selected>voller Beitrag</option>
+        <option value="2">halber Beitrag</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="w3-half"> 
+    <div class="w3-row-padding">
+      <div class="w3-col l3 w3-left">
+        <p><label>Steuer ID</label></p>
+      </div>
+      <input class="w3-col l3 w3-input w3-border" type="text" name="form_steuerid", maxlength="11">
+
+      <div class="w3-col l3 w3-left">
+        <p><label>Staatsangehörigkeit</label></p>
+      </div>
+      <input class="w3-col l3 w3-input w3-border" type="text" name="form_staatsang", maxlength="30">
+    </div>
+
+    <div class="w3-row-padding">
+      <div class="w3-col l3 w3-left">
+        <p><label>Berufsbezeichnung</label></p>
+      </div>
+      <input class="w3-col l3 w3-input w3-border" type="text" name="form_berufsbezeichnung", maxlength="30">
+      <div class="w3-col l4 w3-left">
+        <p><label>Art der Beschäftigung</label></p>
+      </div>
+      <select class="form-control w3-col l2 w3-input w3-border" type="text" name="form_artderbeschaeftigung">
+        <option value="0">keine Angabe</option>
+        <option value="1" selected>Hauptbeschäftigung</option>
+        <option value="2">Nebenbeschäftigung</option>
+      </select>
+    </div>
+    
+    <div class="w3-row-padding">
+      <div class="w3-col l4 w3-left">
+        <p><label>weitere Beschäftigung</label></p>
+      </div>
+      <select class="form-control w3-col l2 w3-input w3-border" type="text" name="form_weiterebesch">
+        <option value="0" selected>nein</option>
+        <option value="1">ja</option>
+      </select>
+          
+      <div class="w3-col l4 w3-left">
+        <p><label>weitere Beschäftigung auch geringfügig</label></p>
+      </div>
+      <select class="form-control w3-col l2 w3-input w3-border" type="text" name="form_PV">
+        <option value="0" selected>nein</option>
+        <option value="1">ja</option>
+      </select>
+    </div>
+      
+    <div class="w3-row-padding">
+      <div class="w3-col l4 w3-left">
+        <p><label>Personengruppe</label></p>
+      </div>
+      <select class="form-control w3-col l8 w3-input w3-border" type="text" name="form_pgr">
+          <option value="101" selected>101 SV pflichtige Beschäftigung</option>
+          <option value="102">102 Auszubildende ohne bes. Merkmale</option>
+          <option value="104">104 Hausgewerbetreibende</option>
+          <option value="105">105 Praktikanten</option>
+          <option value="106">106 Werkstudenten</option>
+          <option value="108">108 Bezieher von Vorruhestandsgeld</option>
+          <option value="109">109 geringfügig entlohnte Beschäftigte</option>
+          <option value="110">110 kurzfristig Beschäftigte</option>
+          <option value="111">111 Beschäftigte in berufsfördernden Maßnahmen</option>
+          <option value="118">118 Unständig Beschäftigte</option>
+          <option value="119">119 versicherungsfreie Altersvollrenter</option>
+          <option value="190">190 Beschäftigte, die nur in der gesetzlichen UV</option>
+          <option value="900">900 nicht meldepflichtige Beschäftigte</option>
+       </select>
+    </div>  
+              
+
+    <div class="w3-row-padding">
+      <div class="w3-col l4 w3-left">
+        <p><label>höchster Schulabschluss</label></p>
+      </div>
+      <select class="form-control w3-col l2 w3-input w3-border" type="text" name="form_schulabschluss">
+          <option value="1">1 ohne Schulabschluss</option>
+          <option value="2">2 Haupt-/Volksschulabschluss</option>
+          <option value="3">3 mittlere Reife oder gleichwertig</option>
+          <option value="4">4 Abitur/Fachabitur</option>
+          <option value="9" selected>9 Abschluss unbekannt</option>
+      </select>
+      <div class="w3-col l4 w3-left">
+        <p><label>Höchste Berufsausbildung</label></p>
+      </div>
+      <select class="form-control w3-col l2 w3-input w3-border" type="text" name="form_berufsausbildung">
+          <option value="1">1 ohne beruflichen Ausbildungsabschluss</option>
+          <option value="2">2 Abschluss einer anerkannten Berufsausbildung</option>
+          <option value="3">3 Meister-/Techniker- oder gleichwertig</option>
+          <option value="4">4 Bachelor</option>
+          <option value="5">5 Diplom/Magister/Master/Staatsexamen</option>
+          <option value="6">6 Promotion</option>
+          <option value="9" selected>9 Abschluss unbekannt</option>
+      </select>
+    </div>
+  </div>
+
+<div class="w3-half">
+  <h3>Vertragsdaten</h3>
+</div>
+<div class="w3-half">
+  <h3>Steuer und SV wenn Angaben fehlen</h3>
+</div>
+
+<div class="w3-half">
+    <div class="w3-row-padding">
+      <div class="w3-col l3 w3-left">
+        <p><label>IBAN</label></p>
+      </div>
+      <input class="w3-col l3 w3-input w3-border" type="text" name="form_iban", maxlength="34">
+      <div class="w3-col l3 w3-left">
+        <p><label>Kostenstelle</label></p>
+      </div>
+      <input class="w3-col l3 w3-input w3-border" type="text" name="form_kostenstelle", maxlength="13">
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-col l3 w3-left">    
+        <p><label>Entlohnung</label></p>
+      </div>
+      <select class="form-control w3-col l3 w3-input w3-border" type="text" name="form_gehalt">
+        <option value="1">Gehalt</option>
+        <option value="2">Festlohn</option>
+        <option value="3">Stundenlohn</option>
+      </select>
+      <div class="w3-col l2 w3-rigth">
+        <p><label>EUR</label></p>
+      </div>
+      <input class="w3-col l2 w3-input w3-border" type="text" name="form_eurovorkomma", maxlength="5">
+      <div class="w3-col l1 w3-rigth">
+        <p><label>,</label></p>
+      </div>
+      <input class="w3-col l1 w3-input w3-border" type="text" name="form_euronachkomma", maxlength="2">
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-col l4 w3-left">
+        <p><label>wöchentliche Arbeitszeit</label></p>
+      </div>
+      <input class="w3-col l2 w3-input w3-border" type="text" name="form_waz", maxlength="5">
+      <div class="w3-col l4 w3-center">
+        <p><label>Austrittsdatum</label></p>
+      </div>
+      <input class="w3-col l2 w3-input w3-border" type="date" name="form_austrittsdatum">
+    </div>   
+</div>
+
+<div class="w3-half"> 
+  <div class="w3-row-padding">
+    <div class="w3-col l3 w3-left">
+      <p><label>Geburtsort</label></p>
+    </div>
+    <input class="w3-col l3 w3-input w3-border" type="text" name="form_geburtsort", maxlength="30">
+
+    <div class="w3-col l3 w3-left">
+      <p><label>Geburtsland</label></p>
+    </div>
+    <input class="w3-col l3 w3-input w3-border" type="text" name="form_geburtsland", maxlength="30">
+  </div>
+
+  <div class="w3-row-padding">
+    <div class="w3-col l3 w3-left">
+      <p><label>Steuerklasse</label></p>
+    </div>
+    <input class="w3-col l1 w3-input w3-border" type="text" name="form_steuerklasse", maxlength="1">
+    <div class="w3-col l3 w3-left">
+      <p><label>Kinderfreibetrag</label></p>
+    </div>
+    <input class="w3-col l1 w3-input w3-border" type="text" name="form_kinderfreibetrag", maxlength="4">
+    <div class="w3-col l3 w3-left">
+      <p><label>Konfession</label></p>
+    </div>
+    <input class="w3-col l1 w3-input w3-border" type="text" name="form_konfession", maxlength="30">
+  </div>
+ 
+  <div class="w3-row-padding">
+    <div class="w3-col l3 w3-left">
+      <p><label>freier Text (120 Zeichen)</label></p>
+    </div>
+    <input class="w3-col l9 w3-input w3-border" type="text" name="form_freiertext", maxlength="120">
+  </div>
+</div>
+</div>
+
+
+<br>
+  <div class="w3-third">    
+    <center>
+    <input type = "submit" button class="btn btn-primary" value = "speichern"/>
+    </center><br>
+  </div>
+
+  <div class="w3-third">&NonBreakingSpace;</div>    
+  
+  <div class="w3-third">  
+    <center>
+    <input type="reset" button class="btn btn-default" value="verwerfen">
+    </center>
+  </div><br>
+  </form>
+</div>
+
+<br>
+
+<div class="w3-card">
+  <form class="w3-container w3-card-4 w3-round">
+  <h3>Hinweise</h3>
+  <br>
+    <div class="w3-row-padding">
+      <div class="w3-half">
+        <p>Stammdatenerfassung für neue Mitarbeiter</p>
+      </div>
+      <div class="w3-half">
+        <p>Stimme die Inhalte mit deinem Steuerberater ab<br>
+        die hier erfassten Daten haben Auswirkungen auf die Steuer und SV rechtliche Behandlung!<br>
+        weitere Unterlagen für eine korrekte Abrechnung werden benötigt<br>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
